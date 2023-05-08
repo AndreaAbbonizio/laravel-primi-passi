@@ -14,5 +14,63 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $links = [
+        'home' => 'home',
+        'about' => 'about',
+        'shop' => 'shop',
+        'news' => 'news'
+    ];
+
+    $name = 'Andrea';
+
+    $surname = 'Abbonizio';
+
+    return view('home', compact('links', 'name', 'surname'));
 });
+
+Route::get('/about', function () {
+    $links = [
+        'home' => 'home',
+        'about' => 'about',
+        'shop' => 'shop',
+        'news' => 'news'
+    ];
+    return view('about', compact('links'));
+})->name('about');
+
+Route::get('/home', function () {
+    $links = [
+        'home' => 'home',
+        'about' => 'about',
+        'shop' => 'shop',
+        'news' => 'news'
+    ];
+
+    $name = 'Andrea';
+
+    $surname = 'Abbonizio';
+
+    return view('home', compact('links', 'name', 'surname'));
+})->name('home');
+
+
+Route::get('/shop', function () {
+    $links = [
+        'home' => 'home',
+        'about' => 'about',
+        'shop' => 'shop',
+        'news' => 'news'
+    ];
+    return view('shop', $links);
+})->name('shop');
+
+
+Route::get('/news', function () {
+    $links = [
+        'home' => 'home',
+        'about' => 'about',
+        'shop' => 'shop',
+        'news' => 'news'
+    ];
+    return view('news', $links);
+})->name('news');
